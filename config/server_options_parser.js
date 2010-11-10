@@ -1,3 +1,14 @@
+/**
+ * This file is part of the myExpress extension of expressjs
+ * 
+ * @package myExpress
+ * @author Stéphane Erard <stephane.erard@gmail.com>
+ */
+
+/**
+ * This file let you add event listeners on options specified in the server_options module
+ */
+
 module.exports = function(parser, app, express, dirname, appModule){
 	
 	/**

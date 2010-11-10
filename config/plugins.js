@@ -6,14 +6,13 @@
  */
 
 /**
- * This file is used to declare the application modules
+ * This file is used to declare the application plugins
  */
 
 module.exports = function(app, express, dirname) {
-	app.config.modules = {
-		menu : {
+	app.config.plugins= {
+		myPlugin : {
 			template : 'menu.jade'
-		},
-		persons: {}
+		}
 	};
 };
