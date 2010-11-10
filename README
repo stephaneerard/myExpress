@@ -1,1 +1,31 @@
-The main goal of this is to make things more separate within node.js' express.js application.
+The main goal of this is to make things more separated within node.js' express.js application.
+
+When using the skeleton app created by running "express" in a directory, the configuration is set within the very same app.js.
+
+It's not talking about bad or good thing, just talking about "separating" things.
+
+The declaration of the configuration, overloading it using command arguments, and running the application shoudl be separated.
+At least this is one of my needs.
+
+Here is a brief attempt to summarize what's going on :
+
+$ node app.js
+    > require express
+    > export app which is a result of express.createServer()
+    > require ./config/config, giving to it module, app, express and __dirname
+        ## About default options
+        > loads default options from ./defaults
+        
+        ## About command-line arguments (which lets you overload default opts)
+        > instanciate the optparser, feed its switches arg with ./server_options
+        > require ./server_options_parser which let you add behavior to parser.on('$whatever')
+        > add the optparser.on('*') to feed app.options[option] with value
+        > launch the parsing process
+        
+        ## About environment configuration
+        > require the ./envs/all module, feed it with app, express and dirname
+        > set the app' env with app.options.env (so it can declared within ./defaults and overloaded by command-line args)
+        
+        ## About starting the application using options/config
+        > Adding the app.start() function with lambda-func, make it uses app.options.* as needed
+    > running app.start()
