@@ -29,3 +29,11 @@ $ node app.js
         ## About starting the application using options/config
         > Adding the app.start() function with lambda-func, make it uses app.options.* as needed
     > running app.start()
+    
+    
+    Examples of running the app.js :
+    
+    $ node app.js -p 8010 -e development
+        >> Will run the application server listening on port 8010 configured for development environment
+    $ node app.js -p 10000 -e production
+        >> Will run the application server listening on port 10000 configured for production environment
